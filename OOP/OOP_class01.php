@@ -1,8 +1,11 @@
 <?php
 
     class Class01 (){
-        echo 'hello class01';
+        sayHello(){
+            echo 'hello class01';
+        }
     }
 
-    Class01
+    $MyClass01 = new MyClass();
+    $MyClass01->sayHello();
 ?>
