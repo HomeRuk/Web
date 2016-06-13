@@ -1,4 +1,21 @@
 <?php
+
+    /*class human {
+        var name;
+        var sex;
+        var birthday;
+        function setName(){
+
+        }
+        function setSex(){
+
+        }
+        function setBirthDay(){
+
+        }
+    }
+    */
+
     /* Create Class Human 
      * add method showNickName have role Display text 'Hello Human'
      */
@@ -8,8 +25,6 @@
         }
     }
     // Create Object name is myClass01 from Class Human
-    $myClass01 = new Human();
-    // GetMethod satHello from object myClass01
-    $myClass01->sayHello();
+    new Human()->sayHello();
 
 ?>
