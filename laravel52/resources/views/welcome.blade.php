@@ -40,6 +40,11 @@
             <div class="content">
                 <div class="title">Laravel 5</div>
 				<p>{{ date("d/m/Y H:i:s") }} </p>
+                <p><?= date("d/m/Y H:i:s"); ?> </p>
+                <p><?php echo date("d/m/Y H:i:s"); ?> </p>
+                <p>{{ 1234 }}</p>
+                <p><?= 1234 ?> </p>
+                <p><?php echo 1234 ?> </p>
             </div>
         </div>
     </body>
