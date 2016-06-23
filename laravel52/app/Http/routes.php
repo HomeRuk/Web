@@ -50,9 +50,30 @@ Route::get('categories/page/{id}/{title?}','CategoriesController@page')->where([
 // http://localhost:8000/pages/show-id
 // http://localhost:8000/pages/about
 // http://localhost:8000/pages/contact
+// http://localhost:8000/pages/welcome-blade
 Route::controller('pages', 'PagesController');
 
+Route::get('/contact/{name}', function($name){ return 'Hello'.$name; });
+
+Route::get('/about', function () {
+    $info = [
+                    'codingthailand.com',
+                    'codingthailand@gmail.com',
+                    '085-4952624'
+          ];
+    return view('about')->with('info', $info);
+});
 
 
+Route::get('/site', function(){ 
+    $name ="A";
+    return view('site.index',['name' => $name]);    
+});
 
+Route::get('product', 'ProductController@index');
 
+Route::resource('panda','PandaController');
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
