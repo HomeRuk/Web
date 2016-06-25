@@ -14,4 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('panda','PandaController');
+
+Route::resource('/panda','PandaController');
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
+
+Route::resource('/typefood','TypeFoodController');
+Route::get('/typefood/show/{id}', 'TypeFoodController@Show');
