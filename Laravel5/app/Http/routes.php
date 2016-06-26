@@ -21,4 +21,5 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 Route::resource('/typefood','TypeFoodController');
+
 Route::get('/typefood/show/{id}', 'TypeFoodController@Show');

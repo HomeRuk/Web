@@ -58,8 +58,8 @@ class TypeFoodController extends Controller
     {
         $typefood = TypeFood::find($id);
         return view('typefood.show',[
-            'typefood'=>$typefood
-        ]);
+            'typefood' => $typefood
+        ]); // typefood/show.blade.php
     }
 
     /**
