@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::resource('/panda','PandaController');
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
@@ -23,3 +24,7 @@ Route::get('/home', 'HomeController@index');
 Route::resource('/typefood','TypeFoodController');
 
 Route::get('/typefood/show/{id}', 'TypeFoodController@Show');
+
+Route::get('/insert', 'TypeFoodController@insert');
+
+Route::get('/typefood/delete/{id}', 'TypeFoodController@delete');

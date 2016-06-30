@@ -6,7 +6,7 @@
 <body>
 
     <form action='#' method='POST'>
-                <input type='text' name='textbox01'  />
+        <input type='text' name='textbox01'  />
     </form>
     <p>
         <?php

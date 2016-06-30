@@ -13,7 +13,7 @@ class CreateTypefoodTable extends Migration
     public function up()
     {
         Schema::create('typefood', function (Blueprint $table) {
-            $table->increments('id',2);
+            $table->increments('id');
             $table->string('name',50);
             $table->timestamps();
         });

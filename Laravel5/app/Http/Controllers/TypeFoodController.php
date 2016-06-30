@@ -4,37 +4,45 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+use App\Http\Requests\StoreTypeFoodRequest;
+
+//use App\Http\Requests;
 
 use App\TypeFood;
 
-class TypeFoodController extends Controller
-{
+class TypeFoodController extends Controller {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         
-        $typefood = TypeFood::all();
-        $count = TypeFood::count();
+        //$typefood = TypeFood::all()
         //$typefood = TypeFood::all()->random(2);
+        //$typefood = TypeFood::orderBy('id','desc')->get();
+        /* sample Secrch
+         *  $search = '%ก%';
+         *  $typefood = TypeFood::where('name', 'LIKE', $search )->get();
+         */
+        $typefood = TypeFood::paginate(4);
+        
         $count = TypeFood::count();
-        return view('typefood.index',[
+
+        return view('typefood.index', [
             'typefoods' => $typefood,
-                'count' => $count
+            'count' => $count
         ]);
     }
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create() {
+        return view('typefood.create');
     }
 
     /**
@@ -43,21 +51,39 @@ class TypeFoodController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(StoreTypeFoodRequest $request) {
+        
+        $typefood = new TypeFood();
+        /*$typefood->name = $request->name;
+        $typefood->save();*/
+        $typefood->create($request->all()); //define $fillable in model typefood
+        return redirect()->action('TypeFoodController@index');
+        
     }
-
+     public function insert() {
+        
+        $tf1 = new TypeFood();
+        /*
+         * $tf1->name = 'ปิ้ง';
+         * $tf1->save();
+         */
+        $data = [
+            'name' => 'ปิ้งย่าง'
+        ];
+        $tf1->create($data);
+        
+        return 'บันทึกเรียบร้อย';
+    }
+    
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id) {
         $typefood = TypeFood::find($id);
-        return view('typefood.show',[
+        return view('typefood.show', [
             'typefood' => $typefood
         ]); // typefood/show.blade.php
     }
@@ -68,9 +94,12 @@ class TypeFoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($id) {
+        
+        $typefood = TypeFood::find($id);
+        return view('typefood.edit',[
+                'typefood' => $typefood           
+        ]);
     }
 
     /**
@@ -80,9 +109,14 @@ class TypeFoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(StoreTypeFoodRequest $request, $id) {
+         
+        $typefood = TypeFood::find($id);
+        $typefood->name = $request->name;
+        $typefood->save();
+        
+        //$typefood->update($request->all()); //define $fillable in model typefood
+        return redirect()->action('TypeFoodController@index');
     }
 
     /**
@@ -91,8 +125,17 @@ class TypeFoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         //
+    }
+    
+    //ใช้เพื่อการเรียน delete
+    public function delete($id) {
+        /*
+        $typefood = TypeFood::find($id);
+        $typefood->delete();
+         */
+        TypeFood::destroy($id);
+        return back();
     }
 }
