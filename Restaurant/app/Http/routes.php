@@ -14,3 +14,23 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
+
+Route::get('/typefood','TypeFoodController@index');
+
+Route::get('/typefood/show/{typefood_id?}','TypeFoodController@show')->where('typefood_id', '[0-9]+');
+
+Route::get('/typefood/{typefood_id?}/edit','TypeFoodController@edit');
+
+
+
+
+
+
+
+
+
+?>

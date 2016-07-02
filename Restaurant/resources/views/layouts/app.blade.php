@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -57,7 +58,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                    <li><a href="{{ url('/food') }}">เมนู</a></li>
+                        <li><a href="{{ url('/food') }}">เมนู</a></li>
                         <li><a href="{{ url('/typefood') }}">ประเภทอาหาร</a></li>
                         <li><a href="{{ url('/login') }}">เข้าสู่ระบบ</a></li>
                         <li><a href="{{ url('/register') }}">สมัครสมาชิก</a></li>

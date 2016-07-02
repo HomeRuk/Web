@@ -6,8 +6,7 @@
         <div class="col-md-8 col-md-offset-1">
             <a href="{{ url('/typefood/create') }}" class="btn btn-primary">เพิ่มข้อมูล</a>
             <div class="panel panel-default">
-                <div class="panel-heading"><h4>ประเภทอาหาร</h4> จำนวน {{ $count }}  รายการ
-                <li><a href="{{ url('/typefood') }}">เรียงจากมากน้อย</a>
+                <div class="panel-heading"><h4>ประเภทอาหาร</h4> จำนวน {{ $count or 'error' }}  รายการ
                 </div>
 
                 <div class="panel-body">
