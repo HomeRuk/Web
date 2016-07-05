@@ -138,4 +138,15 @@ class TypeFoodController extends Controller {
         TypeFood::destroy($id);
         return back();
     }
+    
+    public function getAPI(){
+        $typefood = file_get_contents(url('https://api.thingspeak.com/channels/122038/feeds/last.json?api_key=9A46C54NQCKHWNRF'));
+        $typefood = json_decode($typefood, TRUE);
+        //dd($typefood);
+        //dd($typefood['field1']);
+        return view('typefood.getAPI',[
+            'typefood' => $typefood           
+        ]);
+    }
+     
 }

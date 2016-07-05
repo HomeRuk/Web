@@ -21,12 +21,14 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::resource('/typefood','TypeFoodController');
-
 Route::get('/typefood/show/{typefood_id}', 'TypeFoodController@Show');
 
 Route::get('/insert', 'TypeFoodController@insert');
 
 Route::get('/typefood/delete/{typefood_id}', 'TypeFoodController@delete');
+
+Route::get('/getAPI/', 'TypeFoodController@getAPI');
+
+Route::resource('/typefood','TypeFoodController');
 
 Route::resource('/food','FoodController');

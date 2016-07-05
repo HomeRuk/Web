@@ -23,7 +23,7 @@ class TypeFoodController extends Controller {
                 'typefoods' => $typefood,    
             ]);        
         }else{
-            return view('errors/404');
+            return view('errors1/404');
         }       
     }
     

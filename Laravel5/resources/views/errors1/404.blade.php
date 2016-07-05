@@ -10,15 +10,16 @@
                     <h4>ลิงก์ที่คุณเคยติดตามอาจเสียหายหรืออาจได้มีการลบเพจนี้ออกแล้ว</h4>
                     <hr/>
                     <img src="{{ asset('img/error.png') }}" class="img-responsive" >
-                    <hr/>                    
+                    <hr/>   
+                    <div class="col-md-4  col-xs-12">
                     <ul class="list-group">
                         <li class="list-group-item"><a href="javascript:history.back()">กลับไปที่เพจก่อนหน้า</a></li>
                         <li class="list-group-item"><a href="{{ url('/') }}">ไปที่หน้าแรก</a></li>     
-                    </ul>                       
+                    </ul>
+                    </div>
                 </div> 
             </div>
         </div>
     </div>
-</div>
 </div>
 @endsection

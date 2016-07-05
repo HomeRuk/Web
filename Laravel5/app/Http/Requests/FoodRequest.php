@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class FoodRequset extends Request
+class FoodRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,19 +26,19 @@ class FoodRequset extends Request
     {
         return [
             'name' => 'required',
-            'price' => 'required|integer',
-            'image' => 'memes:png,jpg,jpeg,bmp',
+            'price' => 'required|numeric',
             'typefood_id' => 'required',
+            'image' => 'mimes:png,jpeg',
         ];
     }
     
     public function messages() {
         return [
-            'name.required' => 'กรุณากรอกชื่อเมนูอาหาร',
+            'name.required' => 'กรุณากรอกชื่อรายการอาหาร',
             'price.required' => 'กรุณากรอกราคา',
-            'price.integer' => 'กรุณากรอกราคาเป็นตัวเลข',
-            'image.memes' => 'กรุณาเลือกรูปภาพนามสกุล png, jpg',
-            'typefood_id.required' => 'กรุณาเลือกประเภทอาหาร',
+            'price.numeric' => 'กรุณากรอกราคาเป็นตัวเลข',
+            'typefood_id.required' => 'เลือกประเภทอาหาร',
+            'image.mimes' => 'เลือกรูปภาพรายการอาหารเป็น สกุล png, jpg',
         ];
     }
 }

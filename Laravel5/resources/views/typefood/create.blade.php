@@ -34,10 +34,21 @@
                     </div>
 
                     {!! Form::close() !!}
-
                 </div>
             </div>
         </div>
     </div>
 </div>
+@endsection
+
+@section('footer')
+
+@if(session()->has('status'))
+
+<script>
+    alert("<?= session()->get('status'); ?> ");
+</script>
+@endif
+
+@endif
 @endsection

@@ -11,7 +11,7 @@
 
                 <div class="panel-body">
                     <table class="table table-bordered">
-                        <tr>
+                        <tr class="active">
                             <th>รหัส</th>
                             <th>ประเภท</th> 
                             <th>รายละเอียด</th> 
@@ -24,6 +24,7 @@
                                 <a href="{{ url('/typefood/show/'.$typefood->id)}}">ดูรายละเอียด</a>
                                 <a href="{{ url('/typefood/'.$typefood->id.'/edit')}}">แก้ไข</a>
                                 <a href="{{ url('/typefood/delete/'.$typefood->id)}}">ลบ</a>
+                                
                             </td>
                         </tr>
                     @endforeach
